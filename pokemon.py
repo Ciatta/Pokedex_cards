@@ -2,6 +2,7 @@ import pypokedex
 import json
 
 # cards to add
+size = 18
 name_list = []
 dex_list = []
 
@@ -17,12 +18,12 @@ pokedex=pokedex2
 # add cards
 for NAME in name_list:
   pokemon = pypokedex.get(name=NAME)
-  if (pokemon.dex%18 == 0): pokedex[int(pokemon.dex)]=[pokemon.name, pokemon.dex, pokemon.dex//18-1, 18]
-  else: pokedex[int(pokemon.dex)]=[pokemon.name, pokemon.dex, pokemon.dex//18, pokemon.dex%18]
+  if (pokemon.dex%18 == 0): pokedex[int(pokemon.dex)]=[pokemon.name, pokemon.dex, pokemon.dex//size-1, size]
+  else: pokedex[int(pokemon.dex)]=[pokemon.name, pokemon.dex, pokemon.dex//size, pokemon.dex%size]
 for DEX in dex_list:
   pokemon = pypokedex.get(dex=DEX)
-  if (pokemon.dex%18 == 0): pokedex[int(pokemon.dex)]=[pokemon.name, pokemon.dex, pokemon.dex//18-1, 18]
-  else: pokedex[int(pokemon.dex)]=[pokemon.name, pokemon.dex, pokemon.dex//18, pokemon.dex%18]
+  if (pokemon.dex%18 == 0): pokedex[int(pokemon.dex)]=[pokemon.name, pokemon.dex, pokemon.dex//size-1, size]
+  else: pokedex[int(pokemon.dex)]=[pokemon.name, pokemon.dex, pokemon.dex//size, pokemon.dex%size]
 
 
 # sort and print
